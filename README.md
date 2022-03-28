@@ -1,8 +1,8 @@
 # Tic Tac Toe
 
-- Print do app
+- Screenshot do app
 
-![Print do app com o jogo rolando](./print-app.jpg)
+![Screenshot do app com o jogo rolando](./app-screenshot.jpg)
 
 ## Descrição
 
