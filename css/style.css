@@ -1,6 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
 body {
   background: #A3C4BC;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  width: calc(100vw - 4rem);
+  height: 2.75rem;
+}
+
+.main-header__button {
+  color: #101917;
+  background: #DAE7E3;
+  border: solid 2px #59887A;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 200ms;
+}
+
+.main-header__button:hover {
+  transform: scale(1.02);
+}
+
+.question-mark-button {
+  border-radius: 1rem;
+  margin-left: 1rem;
 }
 
 .container {
@@ -44,4 +76,72 @@ body {
 
 .place__marker.o {
   color: #8FB7AF;
+}
+
+.game-end__background {
+  display: none;
+}
+
+.game-end {
+  display: none;
+}
+
+.game-end__background.active {
+  display: block;
+  background: #101916;
+  opacity: 50%;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+.game-end.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+  right: 27.5%;
+  width: calc(50vw - 4rem);
+  height: calc(50vh - 6rem);
+  color: #E7EFED;
+  background: #507C71;
+  border: solid 2px #20322D;
+  border-radius: .35rem;
+  box-shadow: 2px 2px 3px #101916;
+}
+
+.game-end__title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: inline-block;
+  width: calc(100% - 2rem);
+  height: fit-content;
+  padding: .5rem 1rem;
+  background: #20322D;
+}
+
+.game-end__text {
+  font-weight: 300;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 47.5%;
+}
+
+.play-again-button {
+  color: #E7EFED;
+  background: #84AEA1;
+  border: solid 2px #59887A;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: .5rem 1rem;
+  transition: 200ms;
+  position: absolute;
+  bottom: .5rem;
+}
+
+.play-again-button:hover {
+  transform: scale(1.02);
 }

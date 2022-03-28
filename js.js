@@ -20,10 +20,18 @@ const markedPlaces = {
   '6': {textNode: undefined, value: ''},
   '7': {textNode: undefined, value: ''},
   '8': {textNode: undefined, value: ''},
-  '9': {textNode: undefined, value: ''}
+  '9': {textNode: undefined, value: ''},
+  resultNode: undefined
 };
 
 const buttons = document.querySelectorAll('[data-js="button"]');
+const resetButton = document.querySelector('[data-js="reset-button"]');
+const playAgainButton = document.querySelector('[data-js="play-again-button"]');
+
+const gameEndBackground = document.querySelector('[data-js="game-end__background"]');
+const gameEnd = document.querySelector('[data-js="game-end"]');
+
+const gameWinnerElement = document.querySelector('[data-js="game-end__text"]');
 
 let turn = 0;
 
@@ -39,43 +47,103 @@ function printO(place, btnValue) {
   markedPlaces[String(btnValue)].textNode = newTextNode;
   markedPlaces[String(btnValue)].value = 'o';
 }
+function showMatchResult(result) {
+  let newTextNode;
+  gameWinnerElement.innerHTML = '';
+  if(result === 'tie')
+    newTextNode = document.createTextNode('Velha!');
+  else if(result === 'x')
+    newTextNode = document.createTextNode('Jogador 1 venceu!');
+  else if(result === 'o')
+    newTextNode = document.createTextNode('Jogador 2 venceu!');
+  markedPlaces.resultNode = newTextNode;
+  gameWinnerElement.appendChild(newTextNode);
+}
 
-function winGame() {
-  if(markedPlaces['1'].value === 'x' && markedPlaces['2'].value === 'x' && markedPlaces['3'].value === 'x')
+function showWinGameXWinner() {
+  gameEndBackground.classList.add('active');
+  gameEnd.classList.add('active');
+  showMatchResult('x');
+}
+function showWinGameOWinner() {
+  gameEndBackground.classList.add('active');
+  gameEnd.classList.add('active');
+  showMatchResult('o');
+}
+function showTieGame() {
+  gameEndBackground.classList.add('active');
+  gameEnd.classList.add('active');
+  showMatchResult('tie');
+}
+
+function checkWinGame() {
+  if(markedPlaces['1'].value === 'x' && markedPlaces['2'].value === 'x' && markedPlaces['3'].value === 'x') {
+    showWinGameXWinner();
     return true;
-  if(markedPlaces['1'].value === 'o' && markedPlaces['2'].value === 'o' && markedPlaces['3'].value === 'o') 
+  }
+  if(markedPlaces['1'].value === 'o' && markedPlaces['2'].value === 'o' && markedPlaces['3'].value === 'o') {
+    showWinGameOWinner();
     return true;
-  if(markedPlaces['4'].value === 'x' && markedPlaces['5'].value === 'x' && markedPlaces['6'].value === 'x')
+  } 
+  if(markedPlaces['4'].value === 'x' && markedPlaces['5'].value === 'x' && markedPlaces['6'].value === 'x') {
+    showWinGameXWinner();
     return true;
-  if(markedPlaces['4'].value === 'o' && markedPlaces['5'].value === 'o' && markedPlaces['6'].value === 'o') 
+  }
+  if(markedPlaces['4'].value === 'o' && markedPlaces['5'].value === 'o' && markedPlaces['6'].value === 'o') {
+    showWinGameOWinner();
     return true;
-  if(markedPlaces['7'].value === 'x' && markedPlaces['8'].value === 'x' && markedPlaces['9'].value === 'x')
+  } 
+  if(markedPlaces['7'].value === 'x' && markedPlaces['8'].value === 'x' && markedPlaces['9'].value === 'x') {
+    showWinGameXWinner();
     return true;
-  if(markedPlaces['7'].value === 'o' && markedPlaces['8'].value === 'o' && markedPlaces['9'].value === 'o')
+  }
+  if(markedPlaces['7'].value === 'o' && markedPlaces['8'].value === 'o' && markedPlaces['9'].value === 'o') {
+    showWinGameOWinner();
     return true;
-  if(markedPlaces['1'].value === 'x' && markedPlaces['4'].value === 'x' && markedPlaces['7'].value === 'x')
+  }
+  if(markedPlaces['1'].value === 'x' && markedPlaces['4'].value === 'x' && markedPlaces['7'].value === 'x') {
+    showWinGameXWinner();
     return true;
-  if(markedPlaces['1'].value === 'o' && markedPlaces['4'].value === 'o' && markedPlaces['7'].value === 'o')
+  }
+  if(markedPlaces['1'].value === 'o' && markedPlaces['4'].value === 'o' && markedPlaces['7'].value === 'o') {
+    showWinGameOWinner();
     return true;
-  if(markedPlaces['2'].value === 'x' && markedPlaces['5'].value === 'x' && markedPlaces['8'].value === 'x')
+  }
+  if(markedPlaces['2'].value === 'x' && markedPlaces['5'].value === 'x' && markedPlaces['8'].value === 'x') {
+    showWinGameXWinner();
     return true;
-  if(markedPlaces['2'].value === 'o' && markedPlaces['5'].value === 'o' && markedPlaces['8'].value === 'o')
+  }
+  if(markedPlaces['2'].value === 'o' && markedPlaces['5'].value === 'o' && markedPlaces['8'].value === 'o') {
+    showWinGameOWinner();
     return true;
-  if(markedPlaces['3'].value === 'x' && markedPlaces['6'].value === 'x' && markedPlaces['9'].value === 'x')
+  }
+  if(markedPlaces['3'].value === 'x' && markedPlaces['6'].value === 'x' && markedPlaces['9'].value === 'x') {
+    showWinGameXWinner();
     return true;
-  if(markedPlaces['3'].value === 'o' && markedPlaces['6'].value === 'o' && markedPlaces['9'].value === 'o')
+  }
+  if(markedPlaces['3'].value === 'o' && markedPlaces['6'].value === 'o' && markedPlaces['9'].value === 'o') {
+    showWinGameOWinner();
     return true;
-  if(markedPlaces['1'].value === 'x' && markedPlaces['5'].value === 'x' && markedPlaces['9'].value === 'x')
+  }
+  if(markedPlaces['1'].value === 'x' && markedPlaces['5'].value === 'x' && markedPlaces['9'].value === 'x') {
+    showWinGameXWinner();
     return true;
-  if(markedPlaces['1'].value === 'o' && markedPlaces['5'].value === 'o' && markedPlaces['9'].value === 'o')
+  }
+  if(markedPlaces['1'].value === 'o' && markedPlaces['5'].value === 'o' && markedPlaces['9'].value === 'o') {
+    showWinGameOWinner();
     return true;
-  if(markedPlaces['3'].value === 'x' && markedPlaces['5'].value === 'x' && markedPlaces['7'].value === 'x')
+  }
+  if(markedPlaces['3'].value === 'x' && markedPlaces['5'].value === 'x' && markedPlaces['7'].value === 'x') {
+    showWinGameXWinner();
     return true;
-  if(markedPlaces['3'].value === 'o' && markedPlaces['5'].value === 'o' && markedPlaces['7'].value === 'o')
+  }
+  if(markedPlaces['3'].value === 'o' && markedPlaces['5'].value === 'o' && markedPlaces['7'].value === 'o') {
+    showWinGameOWinner();
     return true;
+  }
   return false;
 }
-function tieGame() {
+function checkTieGame() {
   let boolean = false;
   for(i = 1; i <= 9; i++) {
     if(markedPlaces[String(i)].value === '') {
@@ -86,6 +154,8 @@ function tieGame() {
       boolean = true
     }
   }
+  if(boolean === true)
+    showTieGame();
   return boolean;
 }
 function endGame() {
@@ -93,11 +163,15 @@ function endGame() {
   places.forEach(function(place, i) {
     if(markedPlaces[String(i + 1)].textNode !== undefined)
       place.removeChild(markedPlaces[String(i + 1)].textNode);
-      markedPlaces[String(i + 1)].textNode = undefined;
-      markedPlaces[String(i + 1)].value = '';
-      place.classList.remove('x');
-      place.classList.remove('o');
+    markedPlaces[String(i + 1)].textNode = undefined;
+    markedPlaces[String(i + 1)].value = '';
+    place.classList.remove('x');
+    place.classList.remove('o');
   });
+  gameWinnerElement.removeChild(markedPlaces.resultNode);
+  markedPlaces.resultNode = undefined;
+  gameEndBackground.classList.remove('active');
+  gameEnd.classList.remove('active');
 }
 
 function addMarker() {
@@ -112,18 +186,14 @@ function addMarker() {
     places[this.value - 1].classList.toggle('o');
     printO(places[this.value - 1], this.value);
   }
-  if(tieGame() === true) {
-    endGame();
-    return;
-  }
-  if(winGame() === true){
-    endGame();
-    return;
-  }
-  turn++;
-  return;
+  checkWinGame();
+  checkTieGame();
+  if(checkTieGame() !== true || checkWinGame() !== true)
+    turn++;
 }
 
 Array.prototype.forEach.call(buttons, function(button) {
   button.addEventListener('click', addMarker);
 });
+resetButton.addEventListener('click', endGame);
+playAgainButton.addEventListener('click', endGame);

@@ -9,6 +9,10 @@
   <title>Tic Tac Toe</title>
 </head>
 <body>
+  <header class="main-header">
+    <button type="button" class="main-header__button reset-button" data-js="reset-button">Reset</button>
+    <button type="button" class="main-header__button question-mark-button" data-js="question-mark-button">?</button>
+  </header>
   <main class="container tic-tac-toe__body">
     <button type="button" class="place" data-js="button" value="1">
       <p data-js="place-1" class="place__marker"></p>
@@ -38,6 +42,12 @@
       <p data-js="place-9" class="place__marker"></p>
     </button>
   </main>
+  <div class="game-end__background" data-js="game-end__background"></div>
+  <section class="container game-end" data-js="game-end">
+    <h3 class="game-end__title">Fim de jogo.</h3>
+    <p class="game-end__text" data-js="game-end__text"></p>
+    <button type="button" class="play-again-button" data-js="play-again-button">Jogar Novamente</button>
+  </section>
   <script src="js.js"></script>
 </body>
 </html>
