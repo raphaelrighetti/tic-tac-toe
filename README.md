@@ -14,4 +14,4 @@ O jogo inicia sempre no turno do jogador que escolheu o **X** para jogar. Assim 
 
 #### Demonstração
 
-<iframe height="300" style="width: 100%;" scrolling="no" title="Tic Tac Toe (w.i.p.)" src="https://codepen.io/raphaelrighetti/embed/GRymmZw?default-tab=js%2Cresult&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a href="https://codepen.io/raphaelrighetti/pen/GRymmZw">Tic Tac Toe (w.i.p.)</a> by Raphael Righetti (<a href="https://codepen.io/raphaelrighetti">@raphaelrighetti</a>)on <a href="https://codepen.io">CodePen</a>.</iframe>
+https://codepen.io/raphaelrighetti/pen/GRymmZw
