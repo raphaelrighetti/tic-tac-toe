@@ -11,3 +11,7 @@
 ### Como jogar:
 
 O jogo inicia sempre no turno do jogador que escolheu o **X** para jogar. Assim que o primeiro jogador joga, automaticamente vira o turno do próximo jogador *(que utilizará o marcador **O**).*. Daí pra frente é só um jogo da velha comum, aproveitem!
+
+#### Demonstração:
+
+https://codepen.io/raphaelrighetti/pen/GRymmZw
