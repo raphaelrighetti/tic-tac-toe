@@ -1,0 +1,47 @@
+body {
+  background: #A3C4BC;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 2.75rem auto;
+}
+
+.tic-tac-toe__body {
+  display: grid;
+  grid-template-rows: repeat(3, 33.33%);
+  grid-template-columns: repeat(3, 33.33%);
+  width: calc(100vw - 4rem);
+  height: calc(100vh - 6rem);
+  background: #507C71;
+  border: solid 2px #20322D;
+  border-radius: .35rem;
+  box-shadow: 2px 2px 3px #101916;
+}
+
+.place {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DAE7E3;
+  border: solid 1px #59887A;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.place:hover {
+  transform: scale(1.02);
+}
+
+.place__marker {
+  font-size: 13rem;
+  text-transform: uppercase;
+}
+
+.place__marker.x {
+  color: #101917;
+}
+
+.place__marker.o {
+  color: #8FB7AF;
+}
