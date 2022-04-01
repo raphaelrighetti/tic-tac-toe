@@ -27,7 +27,10 @@ const markedPlaces = {
 const buttons = document.querySelectorAll('[data-js="button"]');
 const resetButton = document.querySelector('[data-js="reset-button"]');
 const playAgainButton = document.querySelector('[data-js="play-again-button"]');
+const questionMarkButton = document.querySelector('[data-js="question-mark-button"]');
+const closeButton = document.querySelector('[data-js="close-button"]');
 
+const howToPlay = document.querySelector('[data-js="how-to-play"]');
 const gameEndBackground = document.querySelector('[data-js="game-end__background"]');
 const gameEnd = document.querySelector('[data-js="game-end"]');
 
@@ -60,6 +63,14 @@ function showMatchResult(result) {
   gameWinnerElement.appendChild(newTextNode);
 }
 
+function showHowToPlayAndSocials() {
+  howToPlay.classList.toggle('active');
+  gameEndBackground.classList.toggle('active');
+}
+function hideHowToPlayAndSocials() {
+  howToPlay.classList.remove('active');
+  gameEndBackground.classList.remove('active');
+}
 function showWinGameXWinner() {
   gameEndBackground.classList.add('active');
   gameEnd.classList.add('active');
@@ -196,4 +207,6 @@ Array.prototype.forEach.call(buttons, function(button) {
   button.addEventListener('click', addMarker);
 });
 resetButton.addEventListener('click', endGame);
+questionMarkButton.addEventListener('click', showHowToPlayAndSocials);
+closeButton.addEventListener('click', hideHowToPlayAndSocials);
 playAgainButton.addEventListener('click', endGame);
